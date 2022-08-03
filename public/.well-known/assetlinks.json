@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.vercel.arsen_two.twa",
+      "sha256_cert_fingerprints": [
+        "06:7D:E3:3E:36:A7:9F:E6:4B:AD:E7:DF:E6:6F:E9:F9:36:AD:12:11:A4:BD:64:EA:A0:92:DC:58:41:9B:24:FC"
+      ]
+    }
+  }
+]
