@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import { FiGift } from "react-icons/fi";
-import { HomeProps } from "../../types/public.types";
+import { HomeProps, OfferProps } from "../../types/public.types";
 
-const Discount: React.FC<{ attributes: HomeProps[] }> = ({ attributes }) => {
+const Discount: React.FC<{ attributes: OfferProps[] }> = ({ attributes }) => {
   return (
     <div className="my-10 w-full">
       <div className="relative flex items-center bg-zinc-900 h-96">
@@ -17,16 +17,14 @@ const Discount: React.FC<{ attributes: HomeProps[] }> = ({ attributes }) => {
               <div className="h-80 w-[200px] bg-white vstack justify-around rounded-lg shadow-md shadow-slate-300 hover:scale-95 ease-in-out duration-300 cursor-pointer ">
                 <Image
                   alt=""
-                  src={item?.attributes?.media || ""}
+                  src={item?.media || ""}
                   width={180}
                   height={180}
                   priority
                 />
                 <div className="vstack">
-                  <p className="text-zinc-700">{item?.attributes?.title}</p>
-                  <p className="mt-1 text-zinc-500">
-                    {item?.attributes?.price}
-                  </p>
+                  <p className="text-zinc-700">{item?.title}</p>
+                  <p className="mt-1 text-zinc-500">{item?.price}</p>
                 </div>
               </div>
             </div>

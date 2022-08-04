@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { HomeProps } from "../../types/public.types";
+import Link from "next/link";
 
 const Categories: React.FC<{ attributes: HomeProps[] }> = ({ attributes }) => {
   return (
@@ -14,20 +15,24 @@ const Categories: React.FC<{ attributes: HomeProps[] }> = ({ attributes }) => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "linear" }}
             key={item.id}
-            className="vstack h-44 md:h-80 justify-center rounded-lg overflow-hidden shadow-lg shadow-slate-400 cursor-pointer hover:scale-95 ease-in-out duration-300 hover:shadow-none"
+            className="h-44 md:h-80 rounded-lg overflow-hidden shadow-lg shadow-slate-400 cursor-pointer hover:scale-95 ease-in-out duration-300 hover:shadow-none"
           >
-            <div className="relative w-44 md:w-[400px] h-44 md:h-80 bg-amber-400">
-              <Image
-                alt=""
-                src={item?.attributes.media || ""}
-                layout="fill"
-                style={{ opacity: 0.8 }}
-                priority
-              />
-            </div>
-            <p className="absolute text-2xl md:text-4xl">
-              {item.attributes.title}
-            </p>
+            <Link href={`/products/${item.title}`}>
+              <a className="flex vstack justify-center">
+                <div className="relative w-44 md:w-[400px] h-44 md:h-80 bg-amber-400">
+                  <Image
+                    alt=""
+                    src={item?.media || ""}
+                    layout="fill"
+                    style={{ opacity: 0.8 }}
+                    priority
+                  />
+                </div>
+                <p className="absolute text-2xl md:text-4xl">
+                  محصولات {item.title}
+                </p>
+              </a>
+            </Link>
           </motion.div>
         ))}
       </div>
