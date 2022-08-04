@@ -44,11 +44,16 @@ const TopProducts: React.FC = () => {
                   <div className="relative w-36 h-36">
                     <Image alt="" src={item?.media || ""} layout="fill" />
                   </div>
-                  <div className="vstack h-24 justify-center">
-                    <p className="text-zinc-700 whitespace-pre-wrap text-center">
+                  <div className="vstack h-28 justify-center">
+                    <p className="text-zinc-700 mt-3 whitespace-pre-wrap text-center">
                       {item?.title}
                     </p>
-                    <p className="mt-1 text-zinc-500">{item?.price} تومان</p>
+                    <p className="mt-1 text-zinc-500 line-through decoration-red-600">
+                      {item?.old_price} تومان
+                    </p>
+                    <p className="mt-1 text-zinc-500 mb-3">
+                      {item?.price} تومان
+                    </p>
                   </div>
                 </div>
               </Link>

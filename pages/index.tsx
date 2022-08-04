@@ -8,8 +8,6 @@ import { API_URL } from "../hooks/useFetch";
 import { HomeProps, MainProps } from "../types/public.types";
 
 const Home: NextPage<{ data: MainProps }> = ({ data }) => {
-  // const items = data?.sort((a, b) => a.id - b.id);
-  console.log(data);
   return (
     <div>
       <LandScreen
@@ -53,6 +51,9 @@ export const getStaticProps = async () => {
           old_price
           price
           title
+          color1
+          color2
+          brand
         }
       }
       `,

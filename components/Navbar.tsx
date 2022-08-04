@@ -30,7 +30,7 @@ const Navbar = () => {
               فروشگاه
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/about">
             <a className="w-36 h-12 vstack border-2 justify-center rounded-lg mt-5">
               درباره ما
             </a>

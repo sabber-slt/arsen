@@ -21,26 +21,18 @@ const Shop = () => {
           </div>
         </div>
         <div className="vstack text-zinc-600 px-5 w-full md:w-[50vw]">
-          <div className="hstack items-start w-full text-lg text-zinc-800">
-            <p>رنگ:</p>
-            <p className="text-right text-sm pt-1 w-full pr-2">
-              {query?.color1 !== null ? query.color1 : ""}
-            </p>
-            <p className="text-right text-sm pt-1 w-full pr-2">
-              {query?.color2 !== null ? query.color2 : ""}
-            </p>
-            <p className="text-right text-sm pt-1 w-full pr-2">
-              {query?.color3 !== null ? query.color3 : ""}
-            </p>
-          </div>
           <p className="text-right text-lg w-full text-zinc-800">مشخصات:</p>
           <p className="whitespace-pre-line w-full pr-5 text-right text-sm">
             {query?.desc}
           </p>
           <p className="text-right text-lg w-full text-zinc-800">توضیحات:</p>
           <p className="whitespace-pre-wrap pr-5 text-sm">{query?.content}</p>
+          <p className="text-right text-lg w-full text-zinc-800">زمان تحویل:</p>
+          <p className="whitespace-pre-wrap text-right w-full pr-5 text-sm">
+            24 ساعت
+          </p>
         </div>
-        <div className="vstack"></div>
+
         <div className="w-1/5 vstack my-8">
           <div className="w-36 h-48 bg-red-200 text-zinc-900 vstack justify-around rounded-lg">
             <div className="vstack text-xs">
@@ -51,10 +43,10 @@ const Shop = () => {
               <p className="text-right w-full">موجود در انبار:</p>
               <div className="pt-2">
                 {" "}
-                {query?.mojod === "true" ? (
-                  <FiCheck className="text-green-600 w-5 h-5" />
-                ) : (
+                {query?.mojod === "false" ? (
                   <FiX className="text-red-600 w-5 h-5" />
+                ) : (
+                  <FiCheck className="text-green-600 w-5 h-5" />
                 )}{" "}
               </div>
             </div>
@@ -77,6 +69,14 @@ const Shop = () => {
               </a>
             </Link>
           </div>
+        </div>
+      </div>
+      <div className="flex flex-col md:flex-row items-center justify-around w-full my-5">
+        <div className="relative w-64 h-64 hover:scale-150 transition ease-in-out duration-200 cursor-pointer">
+          <Image alt="" src={`${query?.media1}`} layout="fill" />
+        </div>
+        <div className="relative w-64 h-64 hover:scale-150 transition ease-in-out duration-200 cursor-pointer">
+          <Image alt="" src={`${query?.media2}`} layout="fill" />
         </div>
       </div>
       <Logo />

@@ -71,3 +71,32 @@ export const fetchProducts = async (brand: string) => {
   const data = await response.json();
   return data?.data?.products;
 };
+
+export const fetchAbout = async () => {
+  const response = await fetch(`${API_URL}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Hasura-Role": "public",
+    },
+    body: JSON.stringify({
+      query: `
+      query MyQuery {
+        about {
+          content1
+          content2
+          content3
+          media1
+          media2
+          title1
+          title2
+          title3
+        }
+      }
+      
+      `,
+    }),
+  });
+  const data = await response.json();
+  return data?.data?.about[0];
+};

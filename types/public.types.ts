@@ -22,6 +22,17 @@ export interface OfferProps {
   id: number;
 }
 
+export interface AboutProps {
+  title1: string;
+  title2?: string;
+  title3?: string;
+  content1: string;
+  content2?: string;
+  content3?: string;
+  media1?: string;
+  media2?: string;
+}
+
 export interface MainProps {
   public: HomeProps[];
   shegeftAngiz: OfferProps[];
