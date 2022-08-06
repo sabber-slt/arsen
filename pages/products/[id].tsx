@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
+import Loading from "../../components/main/Loading";
 import Card from "../../components/products/Card";
 import Search from "../../components/products/Search";
 import { fetchProducts } from "../../hooks/useFetch";
@@ -18,7 +19,7 @@ const Product = () => {
     useQuery<OfferProps[], Error>(["pro", query.id], () =>
       fetchProducts(`${query.id}`)
     );
-  if (isLoading) return <div></div>;
+  if (isLoading) return <Loading />;
 
   console.log(data);
   return (

@@ -71,7 +71,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-around w-full my-5">
+      <div className="flex flex-col md:flex-row items-center justify-around w-full h-[700px] md:h-[400px] my-5">
         <div className="relative w-64 h-64 hover:scale-150 transition ease-in-out duration-200 cursor-pointer">
           <Image alt="" src={`${query?.media1}`} layout="fill" />
         </div>

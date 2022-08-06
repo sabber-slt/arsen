@@ -45,10 +45,9 @@ const Payment = () => {
       }),
     });
     const result = await res.json();
-    console.log(result);
-    if (result.id) {
+    if (result.status === "success") {
       setUser(user);
-      setBankUrl(result.link);
+      setBankUrl(result.url);
       setShow(true);
     }
   };

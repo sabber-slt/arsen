@@ -2,8 +2,8 @@ import create from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 interface User {
-  name: string;
-  phone: string;
+  name: string | null;
+  phone: string | null;
   address: string;
   title: string | string[] | undefined;
   price: string | string[] | undefined;
@@ -14,6 +14,7 @@ interface UserState {
   user: User;
 
   setUser: (user: User) => void;
+  resetUser: () => void;
 }
 
 const useUser = create<UserState>()(
@@ -33,8 +34,8 @@ const useUser = create<UserState>()(
       resetUser: () => {
         set(() => ({
           user: {
-            name: "",
-            phone: "",
+            name: null,
+            phone: null,
             address: "",
             title: "",
             price: "",

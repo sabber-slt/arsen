@@ -100,3 +100,39 @@ export const fetchAbout = async () => {
   const data = await response.json();
   return data?.data?.about[0];
 };
+
+export const fetchAllProducts = async () => {
+  const response = await fetch(`${API_URL}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Hasura-Role": "public",
+    },
+    body: JSON.stringify({
+      query: `
+      query MyQuery {
+        products(order_by: {id: desc}) {
+          brand
+          color1
+          color2
+          content
+          desc
+          id
+          media
+          media1
+          media2
+          media3
+          mojod
+          old_price
+          price
+          title
+        }
+      }
+      
+      
+      `,
+    }),
+  });
+  const data = await response.json();
+  return data?.data?.products;
+};

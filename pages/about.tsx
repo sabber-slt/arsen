@@ -6,16 +6,17 @@ import {
 } from "@tanstack/react-query";
 import { GetStaticProps } from "next";
 import Image from "next/image";
+import Loading from "../components/main/Loading";
 import Search from "../components/products/Search";
 import { fetchAbout } from "../hooks/useFetch";
 import { AboutProps } from "../types/public.types";
 
 const About = () => {
-  const { data, isLoading, isError }: UseBaseQueryResult<AboutProps> = useQuery<
+  const { data, isLoading }: UseBaseQueryResult<AboutProps> = useQuery<
     AboutProps,
     Error
   >(["about"], fetchAbout);
-  if (isLoading) return <div></div>;
+  if (isLoading) return <Loading />;
   console.log(data);
   return (
     <div>
