@@ -23,7 +23,7 @@ export default async function handler(
     zarinpal
       .PaymentRequest({
         Amount: 3000, // In Tomans
-        CallbackURL: "http://localhost:3000/result/callback",
+        CallbackURL: "https://arsenmobile.ir/result/callback",
         Description: "A Payment from Node.JS",
         Email: "hi@siamak.work",
         Mobile: "09120000000",
