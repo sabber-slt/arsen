@@ -69,7 +69,7 @@ const Payment: NextPage = () => {
           onClick={handlePay}
           className="px-5 py-3 bg-amber-400 rounded-lg text-zinc-700"
         >
-          بازگشت به صفحه اصلی
+          تایید نهایی
         </button>
       </div>
     </div>
