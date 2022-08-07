@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
-    <div className="h-[60vh] bg-zinc-900 hstack justify-around">
+    <div className="h-[60vh] bg-zinc-900 hstack justify-around  bottom-0">
       <div className="w-36 vstack">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 py-16">
           <Link href="https://instagram.com/sabber.slt">
@@ -49,8 +49,10 @@ const Footer: React.FC = () => {
           </Link>
         </div>
       </div>
-      <div className="w-72 md:w-[40vw] text-center">
-        <Image alt="" src={"/arsen.png"} width={100} height={100} />
+      <div className="w-72 md:w-[40vw] text-center flex flex-col items-center">
+        <div className="relative w-24 h-24">
+          <Image alt="" src={"/arsen.png"} layout="fill" />
+        </div>
         {/* <Link href="/">
           <a>
             <p className="text-center text-amber-400 px-5 text-sm font-light">

@@ -11,6 +11,7 @@ type FormData = {
   name: string;
   phone: string;
   address: string;
+  post: string;
 };
 
 const Payment = () => {
@@ -84,6 +85,16 @@ const Payment = () => {
           <input
             type="number"
             {...register("phone")}
+            className="w-64 h-10 bg-slate-200 rounded-lg pr-3"
+          />
+        </div>
+        <div className="vstack">
+          <label className="mt-5" htmlFor="name">
+            کدپستی{" "}
+          </label>
+          <input
+            type="number"
+            {...register("post")}
             className="w-64 h-10 bg-slate-200 rounded-lg pr-3"
           />
         </div>
