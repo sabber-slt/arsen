@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.vercel.arsen_two.twa",
+      "package_name": "ir.arsenmobile.twa",
       "sha256_cert_fingerprints": [
-        "F3:44:9B:70:18:A0:37:DF:A0:8D:B8:B2:13:2E:D4:9E:5C:5F:A4:91:D9:8F:27:8E:17:78:79:DD:01:F1:10:B7"
+        "99:86:22:DF:56:04:02:73:BB:CE:EA:78:88:E6:C6:DB:DF:79:2B:1E:8C:7F:B0:B8:F0:E1:4D:E8:55:7E:93:1D"
       ]
     }
   }
