@@ -25,6 +25,8 @@ export const fetchTopProducts = async () => {
           color2
           color3
           brand
+          type
+          use
         }
       }
       
@@ -60,6 +62,9 @@ export const fetchProducts = async (brand: string) => {
           price
           title
           mojod
+          type
+          use
+
         }
       }     
       `,
@@ -126,10 +131,82 @@ export const fetchAllProducts = async () => {
           old_price
           price
           title
+          type
+          use
         }
       }
       
       
+      `,
+    }),
+  });
+  const data = await response.json();
+  return data?.data?.products;
+};
+
+export const fetchFilters = async (
+  brand: string | string[] | undefined,
+  type: string | string[] | undefined,
+  color1: string | string[] | undefined,
+  use: string | string[] | undefined
+) => {
+  const response = await fetch(`${API_URL}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Hasura-Role": "public",
+    },
+    body: JSON.stringify({
+      query: `
+      query MyQuery($brand: String, $color1: String, $type: String , $use: String ) {
+        products(where: {brand: {_eq: $brand}, color1: {_eq: $color1}, type: {_eq: $type}, use: {_eq: $use}}) {
+          brand
+          color1
+          color2
+          content
+          desc
+          id
+          media
+          media1
+          media2
+          media3
+          mojod
+          old_price
+          price
+          type
+          title
+          use
+        }
+      }
+      
+      `,
+      variables: {
+        brand,
+        type,
+        color1,
+        use,
+      },
+    }),
+  });
+  const data = await response.json();
+  return data?.data?.products;
+};
+
+export const fetchTitles = async () => {
+  const response = await fetch(`${API_URL}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Hasura-Role": "public",
+    },
+    body: JSON.stringify({
+      query: `
+      query MyQuery {
+        products {
+          title
+          id
+        }
+      }   
       `,
     }),
   });

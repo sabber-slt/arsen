@@ -19,6 +19,8 @@ export interface OfferProps {
   price?: string;
   desc?: string;
   brand?: string;
+  type?: string;
+  use?: string;
   id: number;
 }
 

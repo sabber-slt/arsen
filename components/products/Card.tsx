@@ -26,6 +26,8 @@ const Card: React.FC<{ data: OfferProps[] }> = ({ data }) => {
                   mojod: item.mojod,
                   color1: item.color1,
                   color2: item.color2,
+                  type: item.type,
+                  use: item.use,
                 },
               }}
             >

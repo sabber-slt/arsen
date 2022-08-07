@@ -6,6 +6,7 @@ import Subs from "../components/home/Subs";
 import TopProducts from "../components/home/TopProducts";
 import Loading from "../components/main/Loading";
 import Navbar from "../components/Navbar";
+import Search from "../components/products/Search";
 import { API_URL } from "../hooks/useFetch";
 import { HomeProps, MainProps } from "../types/public.types";
 
@@ -13,11 +14,11 @@ const Home: NextPage<{ data: MainProps }> = ({ data }) => {
   if (!data) return <Loading />;
   return (
     <div>
-      <Navbar />
-      <LandScreen
+      <Search />
+      {/* <LandScreen
         content={data?.public?.[0].content}
         title={data?.public?.[0].title}
-      />
+      /> */}
       <Discount attributes={data?.shegeftAngiz} />
       <Categories attributes={data?.public.slice(1, 5)} />
       <TopProducts />

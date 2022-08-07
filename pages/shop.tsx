@@ -13,10 +13,27 @@ const Shop = () => {
   return (
     <>
       <Search />
-      <div className="w-full h-full flex flex-col md:flex-row items-center justify-center">
+      <div className="w-full h-full flex flex-col md:flex-row items-center justify-center py-16">
         <div className="vstack justify-around h-96 w-full md:w-[50vw] bg-white">
           <h2 className="text-zinc-600">{query.title}</h2>
-          <div className="relative w-48 h-48">
+          <div className=" w-48 h-48">
+            <Link
+              href={{
+                pathname: "/products/compare",
+                query: {
+                  title: query.title,
+                  media: query.media,
+                  content: query.content,
+                  price: query.price,
+                  type: query.type,
+                  use: query.use,
+                },
+              }}
+            >
+              <a className="bg-red-500 absolute right-8 top-[470px] px-3 py-2 rounded-lg">
+                مقایسه محصول
+              </a>
+            </Link>
             <img alt="" src={`${query.media}`} width={300} height={300} />
           </div>
         </div>
