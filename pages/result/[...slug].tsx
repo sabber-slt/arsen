@@ -1,52 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { API_URL } from "../../hooks/useFetch";
 import useUser from "../../utils/useUser";
+import { handlePay } from "../../hooks/useMutation";
 
 const Payment: NextPage = () => {
   const { query } = useRouter();
   const router = useRouter();
-
   const { user, resetUser } = useUser();
-
-  const handlePay = async () => {
-    const res = await fetch(`${API_URL}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Hasura-Role": "public",
-      },
-      body: JSON.stringify({
-        query: `
-          mutation MyMutation($address:String,$name: String, $phone: String, $price: String, $productId: String, $title: String,$status: String) {
-            insert_sefareshat(objects: {address: $address, name: $name, phone: $phone, price: $price, productId: $productId, title: $title,status:$status}) {
-              returning {
-                id
-                phone
-                name
-              }
-            }
-          }
-          `,
-        variables: {
-          address: user.address,
-          name: user.name,
-          phone: user.phone,
-          price: query.price,
-          productId: query.id,
-          title: user.title,
-          status: query.Status,
-        },
-      }),
-    });
-    const json = await res.json();
-    console.log(json);
-    if (query.Status == "OK") {
-      confirm();
-      resetUser();
-      router.push("/");
-    }
-  };
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
@@ -56,6 +17,7 @@ const Payment: NextPage = () => {
             ? "پرداخت شما با موفقیت انجام شد"
             : "عملیات موفقیت آمیز نبود"}{" "}
         </p>
+        <p> از این که به ما اعتماد کرده اید سپاس گذاریم</p>
         <div className="vstack">
           <p>شماره سفارش: </p>
           <p className="text-xs">{query?.Authority}</p>
@@ -66,10 +28,24 @@ const Payment: NextPage = () => {
         </div>
 
         <button
-          onClick={handlePay}
+          onClick={() => {
+            handlePay(
+              user.address,
+              user.name,
+              user.phone,
+              user.price,
+              user.productId,
+              user.title,
+              query.Status,
+              query.Authority,
+              user.post
+            );
+            resetUser();
+            router.push("/");
+          }}
           className="px-5 py-3 bg-amber-400 rounded-lg text-zinc-700"
         >
-          تایید نهایی
+          تایید نهایی و بازگشت
         </button>
       </div>
     </div>

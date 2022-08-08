@@ -8,6 +8,7 @@ interface User {
   title: string | string[] | undefined;
   price: string | string[] | undefined;
   productId: string | string[] | undefined;
+  post: string | string[] | undefined;
 }
 
 interface UserState {
@@ -27,6 +28,7 @@ const useUser = create<UserState>()(
         title: "",
         price: "",
         productId: "",
+        post: "",
       },
       setUser: (user: User) => {
         set(() => ({ user }));
@@ -40,6 +42,7 @@ const useUser = create<UserState>()(
             title: "",
             price: "",
             productId: "",
+            post: "",
           },
         })),
           {

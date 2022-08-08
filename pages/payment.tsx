@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-import Link from "next/link";
+
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Search from "../components/products/Search";
 import useUser from "../utils/useUser";
@@ -18,15 +16,14 @@ const Payment = () => {
   const router = useRouter();
   const { query } = router;
   const { setUser } = useUser();
-  const [show, setShow] = useState(false);
-  const [bankUrl, setBankUrl] = useState("");
   const { register, handleSubmit } = useForm<FormData>();
   const onClick = async (data: FormData) => {
-    const { name, phone, address } = data;
+    const { name, phone, address, post } = data;
     const user = {
       name,
       phone,
       address,
+      post,
       productId: query.id,
       title: query.title,
       price: query.price,
@@ -40,6 +37,7 @@ const Payment = () => {
         name,
         phone,
         address,
+        post,
         productId: query.id || "",
         price: query.price || "",
         title: query.title || "",
@@ -48,21 +46,11 @@ const Payment = () => {
     const result = await res.json();
     if (result.status === "success") {
       setUser(user);
-      setBankUrl(result.url);
-      setShow(true);
+      router.push(`${result.url}`);
     }
   };
   return (
     <div className="relative text-zinc-700 bg-white w-full h-full">
-      {show && (
-        <div className="w-80 h-80 fixed bg-amber-400 vstack justify-center z-50 self-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg overflow-hidden">
-          <Link href={`${bankUrl}`}>
-            <a className="bg-zinc-700 text-xl px-5 py-2 text-white rounded-lg">
-              رفتن به صفحه بانک
-            </a>
-          </Link>
-        </div>
-      )}
       <Search />
       <form
         onSubmit={handleSubmit(onClick)}
