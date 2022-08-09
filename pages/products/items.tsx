@@ -24,7 +24,7 @@ const Items = () => {
   }
   console.log(data);
   return (
-    <div>
+    <>
       <Search />
       {data?.length! > 0 ? (
         <>
@@ -33,9 +33,11 @@ const Items = () => {
           </div>
         </>
       ) : (
-        <div>No items found</div>
+        <div className="h-[70vh] w-full flex flex-col items-center justify-center">
+          <p className="text-zinc-700 text-xl">کالای مورد نظر شما یافت نشد.</p>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

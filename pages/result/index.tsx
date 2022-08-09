@@ -23,7 +23,7 @@ const Result = () => {
         body: JSON.stringify({
           query: `
         query MyQuery ($title:String){
-                 products(where: {title: {_similar:$title}}) {
+                 products(where: {title: {_ilike:$title}}) {
                    brand
                    color1
                    color2

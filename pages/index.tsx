@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Carousel from "../components/home/Carousel";
 import Categories from "../components/home/Categories";
 import Discount from "../components/home/Discount";
 import Subs from "../components/home/Subs";
@@ -13,10 +14,7 @@ const Home: NextPage<{ data: MainProps }> = ({ data }) => {
   return (
     <div>
       <Search />
-      {/* <LandScreen
-        content={data?.public?.[0].content}
-        title={data?.public?.[0].title}
-      /> */}
+      <Carousel />
       <Discount attributes={data?.shegeftAngiz} />
       <Categories attributes={data?.public.slice(1, 5)} />
       <TopProducts />
