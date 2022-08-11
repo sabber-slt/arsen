@@ -28,6 +28,8 @@ const Discount: React.FC<{ attributes: ProTypes[] }> = ({ attributes }) => {
                     content: item.content,
                     old_price: item.old_price,
                     price: item.price,
+                    type: item.type,
+                    use: item.use,
                   },
                 }}
               >

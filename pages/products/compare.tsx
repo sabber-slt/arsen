@@ -119,7 +119,7 @@ const Compare = () => {
               <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
                 جزئیات
               </p>
-              <p className="text-xs  whitespace-pre-line px-2">
+              <p className="text-xs whitespace-pre-line px-2">
                 {info?.[0]?.content}
               </p>
               <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
