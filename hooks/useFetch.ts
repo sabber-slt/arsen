@@ -1,4 +1,5 @@
 export const API_URL = "https://arsenmobile.hasura.app/v1/graphql";
+export const API_URL0 = "https://arsenmobile1.hasura.app/v1/graphql";
 
 export const fetchTopProducts = async () => {
   const response = await fetch(`${API_URL}`, {
@@ -38,7 +39,7 @@ export const fetchTopProducts = async () => {
 };
 
 export const fetchProducts = async (brand: string) => {
-  const response = await fetch(`${API_URL}`, {
+  const response = await fetch(`${API_URL0}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -46,30 +47,29 @@ export const fetchProducts = async (brand: string) => {
     },
     body: JSON.stringify({
       query: `
-      query MyQuery($brand: String) {
-        products(where: {brand: {_eq: $brand}}) {
+      query MyQuery($brand_child: String) {
+        products(where: {brand_child: {_eq: $brand_child}}) {
           brand
-          color1
-          color2
+          brand_child
+          category
+          color
           content
           desc
           id
           media
           media1
           media2
-          media3
           old_price
           price
           title
-          mojod
           type
           use
+        }    
 
-        }
-      }     
+      }
       `,
       variables: {
-        brand,
+        brand_child: brand,
       },
     }),
   });
@@ -78,7 +78,7 @@ export const fetchProducts = async (brand: string) => {
 };
 
 export const fetchAbout = async () => {
-  const response = await fetch(`${API_URL}`, {
+  const response = await fetch(`${API_URL0}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export const fetchAbout = async () => {
 };
 
 export const fetchAllProducts = async () => {
-  const response = await fetch(`${API_URL}`, {
+  const response = await fetch(`${API_URL0}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -116,18 +116,17 @@ export const fetchAllProducts = async () => {
     body: JSON.stringify({
       query: `
       query MyQuery {
-        products(order_by: {id: desc}) {
+        products {
+          color
+          category
+          brand_child
           brand
-          color1
-          color2
           content
           desc
           id
           media
           media1
           media2
-          media3
-          mojod
           old_price
           price
           title
@@ -135,6 +134,7 @@ export const fetchAllProducts = async () => {
           use
         }
       }
+      
       
       
       `,
@@ -193,7 +193,7 @@ export const fetchFilters = async (
 };
 
 export const fetchTitles = async () => {
-  const response = await fetch(`${API_URL}`, {
+  const response = await fetch(`${API_URL0}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

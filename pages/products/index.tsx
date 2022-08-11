@@ -10,12 +10,12 @@ import {
   UseBaseQueryResult,
   useQuery,
 } from "@tanstack/react-query";
-import { OfferProps } from "../../types/public.types";
+import { ProTypes } from "../../types/public.types";
 import Loading from "../../components/main/Loading";
 
 const Products: NextPage = () => {
-  const { data, isLoading, error }: UseBaseQueryResult<OfferProps[]> = useQuery<
-    OfferProps[],
+  const { data, isLoading, error }: UseBaseQueryResult<ProTypes[]> = useQuery<
+    ProTypes[],
     Error
   >(["products"], fetchAllProducts);
   if (isLoading) return <Loading />;
@@ -36,7 +36,7 @@ export default Products;
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery<OfferProps[]>(["products"], fetchAllProducts);
+  await queryClient.prefetchQuery<ProTypes[]>(["products"], fetchAllProducts);
   return {
     props: {
       dehydrateState: dehydrate(queryClient),

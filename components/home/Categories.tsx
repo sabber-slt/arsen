@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import { HomeProps } from "../../types/public.types";
+import { PublicProp } from "../../types/public.types";
 import Link from "next/link";
 
-const Categories: React.FC<{ attributes: HomeProps[] }> = ({ attributes }) => {
+const Categories: React.FC<{ attributes: PublicProp[] }> = ({ attributes }) => {
   return (
     <div className="my-10 w-full vstack justify-center">
       <h2 className="text-zinc-700 text-start w-full p-5">دسته بندی محصولات</h2>
@@ -17,7 +17,7 @@ const Categories: React.FC<{ attributes: HomeProps[] }> = ({ attributes }) => {
             key={item.id}
             className="h-44 md:h-80 rounded-lg overflow-hidden shadow-lg shadow-slate-400 cursor-pointer hover:scale-95 ease-in-out duration-300 hover:shadow-none"
           >
-            <Link href={`/products/${item.title}`}>
+            <Link href={`/products/${item.content}`}>
               <a className="flex vstack justify-center">
                 <div className="relative w-44 md:w-[400px] h-44 md:h-80 bg-amber-400">
                   <Image

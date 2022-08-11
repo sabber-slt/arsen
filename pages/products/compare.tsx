@@ -55,10 +55,10 @@ const Compare = () => {
               width={150}
               height={150}
             />
-            <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center                                                      ">
+            <p className="text-rose-400 h-5 border-dotted border-t-2 border-slate-600 w-2/3 text-center                                                      ">
               مشخصات
             </p>
-            <p>{query?.title}</p>
+            <p className="text-sm">{query?.title}</p>
             <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
               نوع
             </p>
@@ -70,7 +70,7 @@ const Compare = () => {
             <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
               جزئیات
             </p>
-            <p className="text-xs">{query?.content}</p>
+            <p className="text-xs whitespace-pre-line px-2">{query?.content}</p>
             <p className="text-rose-400 w-2/3 text-center border-dotted border-t-2 border-slate-600">
               قیمت
             </p>
@@ -104,10 +104,10 @@ const Compare = () => {
                 width={150}
                 height={150}
               />
-              <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
+              <p className="text-rose-400 h-5 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
                 مشخصات
               </p>
-              <p>{info?.[0]?.title}</p>
+              <p className="text-sm">{info?.[0]?.title}</p>
               <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
                 نوع
               </p>
@@ -119,7 +119,7 @@ const Compare = () => {
               <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">
                 جزئیات
               </p>
-              <p className="text-xs  whitespace-pre-line">
+              <p className="text-xs  whitespace-pre-line px-2">
                 {info?.[0]?.content}
               </p>
               <p className="text-rose-400 border-dotted border-t-2 border-slate-600 w-2/3 text-center">

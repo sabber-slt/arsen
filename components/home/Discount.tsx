@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FiGift } from "react-icons/fi";
-import { HomeProps, OfferProps } from "../../types/public.types";
+import { OfferProps, ProTypes } from "../../types/public.types";
 
-const Discount: React.FC<{ attributes: OfferProps[] }> = ({ attributes }) => {
+const Discount: React.FC<{ attributes: ProTypes[] }> = ({ attributes }) => {
   return (
     <div className="my-10 w-full">
       <div className="relative flex items-center bg-zinc-900 h-96">
@@ -28,9 +28,6 @@ const Discount: React.FC<{ attributes: OfferProps[] }> = ({ attributes }) => {
                     content: item.content,
                     old_price: item.old_price,
                     price: item.price,
-                    mojod: item.mojod,
-                    color1: item.color1,
-                    color2: item.color2,
                   },
                 }}
               >
@@ -43,7 +40,9 @@ const Discount: React.FC<{ attributes: OfferProps[] }> = ({ attributes }) => {
                     priority
                   />
                   <div className="vstack">
-                    <p className="text-zinc-700">{item?.title}</p>
+                    <p className="text-zinc-700 whitespace-pre-line text-center">
+                      {item?.title}
+                    </p>
 
                     <p className="mt-1 text-zinc-500 line-through decoration-red-600">
                       {item?.old_price}

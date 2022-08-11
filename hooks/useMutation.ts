@@ -1,7 +1,9 @@
+import { API_URL0 } from "./useFetch";
+
 export const API_URL = "https://arsenmobile.hasura.app/v1/graphql";
 
 export const fetchItems = async (id: number) => {
-  const response = await fetch(`${API_URL}`, {
+  const response = await fetch(`${API_URL0}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,20 +13,19 @@ export const fetchItems = async (id: number) => {
       query: `
         query MyQuery($id: Int) {
             products(where: {id: {_eq: $id}}) {
-              title
+              color
+              category
+              brand_child
               brand
-              color1
-              color2
               content
               desc
               id
               media
               media1
               media2
-              media3
-              mojod
               old_price
               price
+              title
               type
               use
             }
@@ -50,7 +51,7 @@ export const handlePay = async (
   authority: string | string[] | undefined,
   post: string | string[] | undefined
 ) => {
-  const res = await fetch(`${API_URL}`, {
+  const res = await fetch(`${API_URL0}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

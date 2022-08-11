@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { ProductProps } from "../../types/products.types";
-import { OfferProps } from "../../types/public.types";
+import { ProTypes } from "../../types/public.types";
 
-const Card: React.FC<{ data: OfferProps[] }> = ({ data }) => {
+const Card: React.FC<{ data: ProTypes[] }> = ({ data }) => {
   return (
     <div className="vstack">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 w-fit items-center justify-items-center">
@@ -23,9 +23,6 @@ const Card: React.FC<{ data: OfferProps[] }> = ({ data }) => {
                   content: item.content,
                   old_price: item.old_price,
                   price: item.price,
-                  mojod: item.mojod,
-                  color1: item.color1,
-                  color2: item.color2,
                   type: item.type,
                   use: item.use,
                 },

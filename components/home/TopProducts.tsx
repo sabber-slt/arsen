@@ -4,14 +4,9 @@ import Link from "next/link";
 import React from "react";
 import { FiGift } from "react-icons/fi";
 import { fetchTopProducts } from "../../hooks/useFetch";
-import { OfferProps } from "../../types/public.types";
+import { MainProp, OfferProps } from "../../types/public.types";
 
-const TopProducts: React.FC = () => {
-  const { data, isLoading, isError }: UseBaseQueryResult<OfferProps[]> =
-    useQuery<OfferProps[], Error>(["topProducts"], fetchTopProducts);
-  if (isLoading) return <FiGift />;
-
-  console.log(data);
+const TopProducts: React.FC<{ data: MainProp[] }> = ({ data }) => {
   return (
     <div className="my-5 w-full">
       <div className="vstack items-center bg-zinc-900">
@@ -34,9 +29,6 @@ const TopProducts: React.FC = () => {
                     content: item.content,
                     old_price: item.old_price,
                     price: item.price,
-                    mojod: item.mojod,
-                    color1: item.color1,
-                    color2: item.color2,
                     type: item.type,
                     use: item.use,
                   },

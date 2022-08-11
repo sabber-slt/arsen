@@ -1,4 +1,4 @@
-export interface HomeProps {
+export interface PublicProp {
   title: string;
   content: string;
   media?: string;
@@ -23,6 +23,22 @@ export interface OfferProps {
   use?: string;
   id: number;
 }
+export interface ProTypes {
+  title: string;
+  content: string;
+  media?: string;
+  media1?: string;
+  media2?: string;
+  old_price?: string;
+  color?: string;
+  price?: string;
+  desc?: string;
+  brand?: string;
+  category?: string;
+  type?: string;
+  use?: string;
+  id: number;
+}
 
 export interface AboutProps {
   title1: string;
@@ -36,8 +52,6 @@ export interface AboutProps {
 }
 
 export interface MainProps {
-  public: HomeProps[];
-  shegeftAngiz: OfferProps[];
+  public: PublicProp[];
+  products: ProTypes[];
 }
-
-export type PublicProps = Omit<HomeProps, "id">;

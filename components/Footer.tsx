@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <div className="h-[70vh] bg-zinc-900 hstack justify-around  bottom-0">
       <div className="w-36 vstack">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 py-16">
-          <Link href="https://instagram.com/sabber.slt">
+          <Link href={"https://instagram.com/arsenmobile.ir"}>
             <a>
               <Image
                 alt=""
@@ -17,33 +17,13 @@ const Footer: React.FC = () => {
               />
             </a>
           </Link>
-          <Link href="tel:00989122863901">
-            <a href="tel:00989122863901">
+          <Link href={"tel:+989034060388"}>
+            <a href={"tel:+989034060388"}>
               <Image
                 alt=""
                 width={50}
                 height={50}
                 src="https://res.cloudinary.com/dupfwlkgb/image/upload/v1656308397/1055012_phone_communication_telephone_icon_qw6bd7.png"
-              />
-            </a>
-          </Link>
-          <Link href="https://www.linkedin.com/in/sabber-soltani-a71397236">
-            <a>
-              <Image
-                alt=""
-                width={50}
-                height={50}
-                src="https://res.cloudinary.com/dupfwlkgb/image/upload/v1652763913/in_vqyfhw.png"
-              />
-            </a>
-          </Link>
-          <Link href="https://github.com/sabber-slt">
-            <a>
-              <Image
-                alt=""
-                width={50}
-                height={50}
-                src="https://res.cloudinary.com/dupfwlkgb/image/upload/v1659542487/Pngtree_3d_pin_location_wit_map_7270173_d0ka3t.png"
               />
             </a>
           </Link>
@@ -88,6 +68,9 @@ const Footer: React.FC = () => {
           آرسن فروشگاه تخصصی هدفون بوده و به صورت تخصصی تمامی هدفون های موجود در
           بازار را تست کرده و محصولاتی که واقعا ارزش خرید دارن رو موجود کرده و
           به مخاطب های خود معرفی میکند.
+        </p>
+        <p className="text-sm px-5 text-white pt-5">
+          طراحی و توسعه وبسایت توسط www.soltanidev.com
         </p>
       </div>
     </div>

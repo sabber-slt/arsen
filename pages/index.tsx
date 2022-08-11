@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import Carousel from "../components/home/Carousel";
 import Categories from "../components/home/Categories";
 import Discount from "../components/home/Discount";
@@ -11,13 +12,18 @@ import { MainProps } from "../types/public.types";
 
 const Home: NextPage<{ data: MainProps }> = ({ data }) => {
   if (!data) return <Loading />;
+  const discount = data?.products?.filter(
+    (item) => item.category === "takhfif"
+  );
+  const topProducts = data?.products?.filter((item) => item.category === "top");
+  console.log(data?.public?.slice(0, 6));
   return (
     <div>
       <Search />
-      <Carousel />
-      <Discount attributes={data?.shegeftAngiz} />
-      <Categories attributes={data?.public.slice(1, 5)} />
-      <TopProducts />
+      <Carousel data={data?.public?.slice(6, 10)} />
+      <Discount attributes={discount} />
+      <Categories attributes={data?.public?.slice(0, 6)} />
+      <TopProducts data={topProducts} />
       <Subs />
     </div>
   );
@@ -26,7 +32,7 @@ const Home: NextPage<{ data: MainProps }> = ({ data }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const response = await fetch(`${API_URL}`, {
+  const response = await fetch("https://arsenmobile1.hasura.app/v1/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,28 +41,30 @@ export const getStaticProps = async () => {
     body: JSON.stringify({
       query: `
       query MyQuery {
-        public(distinct_on: id) {
-          title
-          media
-          id
-          content
-        }
-        shegeftAngiz {
+        products(where: {category: {_is_null: false}}) {
+          brand
+          brand_child
+          category
+          color
           content
           desc
           id
           media
           media1
           media2
-          media3
           old_price
           price
           title
-          color1
-          color2
-          brand
+          type
+          use
         }
-      }
+        public(order_by: {id: asc}) {
+          content
+          id
+          media
+          title
+        }
+      }  
       `,
     }),
   });

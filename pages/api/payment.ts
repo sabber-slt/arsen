@@ -7,8 +7,7 @@ type Data = {
 };
 
 const zarinpal = ZarinpalCheckout.create(
-  "1bc54b7b-8426-4fda-af0a-8bcb88312894",
-  false
+  "1bc54b7b-8426-4fda-af0a-8bcb88312894"
 );
 
 export default async function handler(
@@ -22,7 +21,7 @@ export default async function handler(
     //send data to api
     zarinpal
       .PaymentRequest({
-        Amount: 3000, // In Tomans
+        Amount: parseInt(price), // In Tomans
         CallbackURL: "https://arsenmobile.ir/api/callback",
         Description: "A Payment from Node.JS",
         Email: "hi@siamak.work",
