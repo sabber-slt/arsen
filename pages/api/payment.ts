@@ -7,7 +7,8 @@ type Data = {
 };
 
 const zarinpal = ZarinpalCheckout.create(
-  "1bc54b7b-8426-4fda-af0a-8bcb88312894"
+  "1bc54b7b-8426-4fda-af0a-8bcb88312894",
+  true
 );
 
 export default async function handler(

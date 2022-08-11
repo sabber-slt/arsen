@@ -2,11 +2,9 @@ import { UseBaseQueryResult, useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FiGift } from "react-icons/fi";
-import { fetchTopProducts } from "../../hooks/useFetch";
-import { MainProp, OfferProps } from "../../types/public.types";
+import { ProTypes } from "../../types/public.types";
 
-const TopProducts: React.FC<{ data: MainProp[] }> = ({ data }) => {
+const TopProducts: React.FC<{ data: ProTypes[] }> = ({ data }) => {
   return (
     <div className="my-5 w-full">
       <div className="vstack items-center bg-zinc-900">
