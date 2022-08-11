@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
-    <div className="h-[70vh] bg-zinc-900 hstack justify-around  bottom-0">
+    <div className="h-[70vh] bg-black hstack justify-around  bottom-0">
       <div className="w-36 vstack">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 py-16">
           <Link href={"https://instagram.com/arsenmobile.ir"}>

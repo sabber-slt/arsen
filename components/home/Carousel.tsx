@@ -39,7 +39,7 @@ const Carousel: React.FC<{
         <div className="embla__container">
           {data.map((item) => (
             <div key={item.id} className="embla__slide">
-              <div className="flex flex-row bg-zinc-900 items-center md:items-center h-96 md:h-[80vh] justify-center">
+              <div className="flex flex-row bg-black items-center md:items-center h-96 md:h-[80vh] justify-center">
                 <div className="relative flex w-full md:w-1/2  h-96 md:h-[80vh] z-0 bg-zinc-800">
                   <Image
                     src={item.media as string}

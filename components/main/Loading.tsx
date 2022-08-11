@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Loading = () => {
   return (
-    <div className="h-screen bg-zinc-900 w-full top-0 flex flex-col items-center justify-center">
+    <div className="h-screen bg-black w-full top-0 flex flex-col items-center justify-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -7,7 +7,7 @@ import { OfferProps, ProTypes } from "../../types/public.types";
 const Discount: React.FC<{ attributes: ProTypes[] }> = ({ attributes }) => {
   return (
     <div className="my-10 w-full">
-      <div className="relative flex items-center bg-zinc-900 h-96">
+      <div className="relative flex items-center bg-black h-96">
         <div className="vstack p-2 ">
           <FiGift className="text-white text-5xl pb-3 text-center" />
           <p className="text-center text-amber-400">پیشنهادات شگقت انگیز</p>

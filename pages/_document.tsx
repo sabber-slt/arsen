@@ -9,10 +9,10 @@ class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <link rel="shortcut icon" href="/arsen.png" />
 
-          <link rel="mask-icon" href="/arsen.png" color="#18181b" />
+          <link rel="mask-icon" href="/arsen.png" color="#000000" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/arsen.png"></link>
-          <meta name="theme-color" content="#18181b" />
+          <meta name="theme-color" content="#000000" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"

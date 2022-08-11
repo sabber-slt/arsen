@@ -22,12 +22,12 @@ const Search: React.FC = () => {
   return (
     <>
       <Link href={"/products/filter"}>
-        <a className="absolute w-full h-16 bg-zinc-900 pr-20 flex flex-row items-center">
+        <a className="absolute w-full h-16 bg-black pr-20 flex flex-row items-center">
           <FiSliders className="h-8 w-8  text-amber-500 " />
           <p className="pr-2 text-amber-400">فیلترها</p>
         </a>
       </Link>
-      <div className="vstack md:hstack justify-center md:justify-around w-full h-80 bg-zinc-900">
+      <div className="vstack md:hstack justify-center md:justify-around w-full h-80 bg-black">
         <Image alt="" src="/arsen.png" width={150} height={150} />
 
         <form

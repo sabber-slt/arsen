@@ -7,7 +7,7 @@ import { ProTypes } from "../../types/public.types";
 const TopProducts: React.FC<{ data: ProTypes[] }> = ({ data }) => {
   return (
     <div className="my-5 w-full">
-      <div className="vstack items-center bg-zinc-900">
+      <div className="vstack items-center bg-black">
         <div className="vstack p-2 ">
           <p className="text-center text-amber-400"> محصولات پرطرفدار </p>
         </div>
