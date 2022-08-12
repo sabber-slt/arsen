@@ -5,13 +5,13 @@ import Loading from "../../components/main/Loading";
 import Card from "../../components/products/Card";
 import Search from "../../components/products/Search";
 import { API_URL } from "../../hooks/useFetch";
-import { OfferProps } from "../../types/public.types";
+import { ProTypes } from "../../types/public.types";
 
 type Props = {};
 
 const Result = () => {
   const { query } = useRouter();
-  const { data, isLoading } = useQuery<OfferProps[]>(
+  const { data, isLoading } = useQuery<ProTypes[]>(
     ["xxx", query.name],
     async () => {
       const data = await fetch(`${API_URL}`, {

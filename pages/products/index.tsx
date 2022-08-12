@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Card from "../../components/products/Card";
 import Search from "../../components/products/Search";
-import { API_URL, fetchAllProducts } from "../../hooks/useFetch";
+import { fetchAllProducts } from "../../hooks/useFetch";
 
 import { GetStaticProps } from "next";
 import {

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { ProductProps } from "../../types/products.types";
 import { ProTypes } from "../../types/public.types";
 
 const Card: React.FC<{ data: ProTypes[] }> = ({ data }) => {

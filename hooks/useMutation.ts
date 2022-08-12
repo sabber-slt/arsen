@@ -1,7 +1,5 @@
 import { API_URL0 } from "./useFetch";
 
-export const API_URL = "https://arsenmobile.hasura.app/v1/graphql";
-
 export const fetchItems = async (id: number) => {
   const response = await fetch(`${API_URL0}`, {
     method: "POST",

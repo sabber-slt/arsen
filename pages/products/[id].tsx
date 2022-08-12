@@ -10,15 +10,15 @@ import Loading from "../../components/main/Loading";
 import Card from "../../components/products/Card";
 import Search from "../../components/products/Search";
 import { fetchProducts } from "../../hooks/useFetch";
-import { OfferProps } from "../../types/public.types";
+import { ProTypes } from "../../types/public.types";
 
 const Product = () => {
   const router = useRouter();
   const { query } = router;
-  const { data, isLoading, isError }: UseBaseQueryResult<OfferProps[]> =
-    useQuery<OfferProps[], Error>(["pro", query.id], () =>
-      fetchProducts(`${query.id}`)
-    );
+  const { data, isLoading }: UseBaseQueryResult<ProTypes[]> = useQuery<
+    ProTypes[],
+    Error
+  >(["pro", query.id], () => fetchProducts(`${query.id}`));
   if (isLoading) return <Loading />;
 
   console.log(data);

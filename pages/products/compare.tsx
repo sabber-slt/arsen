@@ -1,8 +1,8 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchFilters, fetchTitles } from "../../hooks/useFetch";
+import { fetchTitles } from "../../hooks/useFetch";
 import { useRouter } from "next/router";
-import { OfferProps } from "../../types/public.types";
+import { ProTypes } from "../../types/public.types";
 import { useForm } from "react-hook-form";
 import Search from "../../components/products/Search";
 import Image from "next/image";
@@ -15,7 +15,7 @@ interface Props {
 
 const Compare = () => {
   const [show, setShow] = React.useState(false);
-  const [info, setInfo] = React.useState<OfferProps[]>();
+  const [info, setInfo] = React.useState<ProTypes[]>();
   const router = useRouter();
   const { query } = router;
 

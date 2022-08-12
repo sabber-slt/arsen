@@ -4,25 +4,7 @@ export interface PublicProp {
   media?: string;
   id: number;
 }
-export interface OfferProps {
-  title: string;
-  content: string;
-  media?: string;
-  media1?: string;
-  media2?: string;
-  media3?: string;
-  old_price?: string;
-  mojod?: string;
-  color1?: string;
-  color2?: string;
-  color3?: string;
-  price?: string;
-  desc?: string;
-  brand?: string;
-  type?: string;
-  use?: string;
-  id: number;
-}
+
 export interface ProTypes {
   title: string;
   content: string;

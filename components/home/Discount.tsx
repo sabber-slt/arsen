@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FiGift } from "react-icons/fi";
-import { OfferProps, ProTypes } from "../../types/public.types";
+import { ProTypes } from "../../types/public.types";
 
 const Discount: React.FC<{ attributes: ProTypes[] }> = ({ attributes }) => {
   return (

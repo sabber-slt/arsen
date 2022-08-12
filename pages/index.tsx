@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 import Carousel from "../components/home/Carousel";
 import Categories from "../components/home/Categories";
 import Discount from "../components/home/Discount";
@@ -7,7 +6,6 @@ import Subs from "../components/home/Subs";
 import TopProducts from "../components/home/TopProducts";
 import Loading from "../components/main/Loading";
 import Search from "../components/products/Search";
-import { API_URL } from "../hooks/useFetch";
 import { MainProps } from "../types/public.types";
 
 const Home: NextPage<{ data: MainProps }> = ({ data }) => {
