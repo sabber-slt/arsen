@@ -8,11 +8,14 @@ import {
 import Head from "next/head";
 import Layout from "../components/Layout";
 import { useState } from "react";
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   return (
     <>
+      <DefaultSeo {...SEO} />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Logo from "../components/main/Logo";
 import Search from "../components/products/Search";
 import { FiCheck, FiX } from "react-icons/fi";
+import { NextSeo } from "next-seo";
 
 const Shop = () => {
   const router = useRouter();
@@ -12,6 +13,16 @@ const Shop = () => {
   console.log(query);
   return (
     <>
+      <NextSeo
+        title={query.title as string}
+        description={query?.desc as string}
+        openGraph={{
+          title: query.title as string,
+          description: query?.desc as string,
+          url: `https://arsenmobile.ir/shop/${query.title as string}`,
+          type: "article",
+        }}
+      />
       <Search />
       <div className="w-full h-full flex flex-col md:flex-row items-center justify-center py-16">
         <div className="vstack justify-around h-96 w-full md:w-[50vw] bg-white">

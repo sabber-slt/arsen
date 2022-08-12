@@ -128,3 +128,44 @@ export const fetchTitles = async () => {
   const data = await response.json();
   return data?.data?.products;
 };
+
+export const fetchHome = async () => {
+  const response = await fetch("https://arsenmobile1.hasura.app/v1/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Hasura-Role": "public",
+    },
+    body: JSON.stringify({
+      query: `
+      query MyQuery {
+        products(where: {category: {_is_null: false}}) {
+          brand
+          brand_child
+          category
+          color
+          content
+          desc
+          id
+          media
+          media1
+          media2
+          old_price
+          price
+          title
+          type
+          use
+        }
+        public(order_by: {id: asc}) {
+          content
+          id
+          media
+          title
+        }
+      }  
+      `,
+    }),
+  });
+  const data = await response.json();
+  return data?.data;
+};
