@@ -28,7 +28,7 @@ const Search: React.FC = () => {
         </a>
       </Link>
       <div className="vstack md:hstack justify-center md:justify-around w-full h-80 bg-black">
-        <Image alt="" src="/arsen.png" width={150} height={150} />
+        <Image alt="" src="/arsen.png" width={100} height={100} />
 
         <form
           className="hstack justify-center"

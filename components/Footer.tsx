@@ -28,9 +28,14 @@ const Footer: React.FC = () => {
             </a>
           </Link>
         </div>
+        <Link href={"/"}>
+          <a className="bg-white">
+            <Image alt="" width={80} height={90} src={"/star1.png"} />
+          </a>
+        </Link>
       </div>
       <div className="w-72 md:w-[40vw] text-center flex flex-col items-center">
-        <div className="relative w-24 h-24">
+        <div className="relative w-20 h-20">
           <Image alt="" src={"/arsen.png"} layout="fill" />
         </div>
         {/* <Link href="/">

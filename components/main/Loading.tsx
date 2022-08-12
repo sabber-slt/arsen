@@ -14,7 +14,7 @@ const Loading = () => {
           repeat: Infinity,
         }}
       >
-        <Image alt="" src={"/arsen.png"} width={300} height={300} />
+        <Image alt="" src={"/arsen.png"} width={200} height={200} />
         <h1 className="text-2xl text-center text-amber-500">ArsenMobile.ir</h1>
       </motion.div>
     </div>
