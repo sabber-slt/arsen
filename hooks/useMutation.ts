@@ -26,6 +26,8 @@ export const fetchItems = async (id: number) => {
               title
               type
               use
+              show_price
+              code
             }
           }   
         `,

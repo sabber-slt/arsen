@@ -28,6 +28,7 @@ const TopProducts: React.FC<{ data: ProTypes[] }> = ({ data }) => {
                     price: item.price,
                     type: item.type,
                     use: item.use,
+                    show_price: item.show_price,
                   },
                 }}
               >
@@ -43,7 +44,7 @@ const TopProducts: React.FC<{ data: ProTypes[] }> = ({ data }) => {
                       {item?.old_price} تومان
                     </p>
                     <p className="mt-1 text-zinc-500 mb-3">
-                      {item?.price} تومان
+                      {item?.show_price} تومان
                     </p>
                   </div>
                 </div>

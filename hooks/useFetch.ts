@@ -1,7 +1,7 @@
 export const API_URL = "https://arsenmobile.hasura.app/v1/graphql";
 export const API_URL0 = "https://arsenmobile1.hasura.app/v1/graphql";
 
-export const fetchProducts = async (brand: string) => {
+export const fetchProducts = async (type: string) => {
   const response = await fetch(`${API_URL0}`, {
     method: "POST",
     headers: {
@@ -10,8 +10,8 @@ export const fetchProducts = async (brand: string) => {
     },
     body: JSON.stringify({
       query: `
-      query MyQuery($brand_child: String) {
-        products(where: {brand_child: {_eq: $brand_child}}) {
+      query MyQuery($type: String) {
+        products(where: {type: {_eq: $type}}) {
           brand
           brand_child
           category
@@ -27,12 +27,14 @@ export const fetchProducts = async (brand: string) => {
           title
           type
           use
+          show_price
+          code
         }    
 
       }
       `,
       variables: {
-        brand_child: brand,
+        type: type,
       },
     }),
   });
@@ -95,6 +97,8 @@ export const fetchAllProducts = async () => {
           title
           type
           use
+          show_price
+          code
         }
       }
       
@@ -155,6 +159,8 @@ export const fetchHome = async () => {
           title
           type
           use
+          show_price
+          code
         }
         public(order_by: {id: asc}) {
           content

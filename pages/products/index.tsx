@@ -20,7 +20,7 @@ const Products: NextPage = () => {
   >(["products"], fetchAllProducts);
   if (isLoading) return <Loading />;
   if (error) return <div></div>;
-  console.log(data);
+
   return (
     <div>
       <Search />

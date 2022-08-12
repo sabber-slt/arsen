@@ -33,8 +33,8 @@ const Filter = () => {
       },
       body: JSON.stringify({
         query: `
-        query MyQuery($brand_child: String, $gte: Int, $lte: Int, $use: String, $type: String) {
-          products(where: {price: {_gte: $gte, _lte: $lte}, brand_child: {_eq: $brand_child}, use: {_eq: $use}, type: {_eq: $type}}) {
+        query MyQuery( $gte: Int, $lte: Int, $use: String, $type: String) {
+          products(where: {price: {_gte: $gte, _lte: $lte},use: {_eq: $use}, type: {_eq: $type}}) {
             id
             brand
             brand_child
@@ -50,12 +50,12 @@ const Filter = () => {
             title
             type
             use
+            show_price
           }
         }
 
         `,
         variables: {
-          brand_child: data.brand_child,
           gte: gte === "000000" ? 500000 : parseInt(gte),
           lte: parseInt(lte),
           use: data.use,
@@ -107,28 +107,22 @@ const Filter = () => {
                     <option value="5060">۵٬۰۰۰٬۰۰۰ - ۶٬۰۰۰٬۰۰۰</option>
                   </select>
                 </div>
-                <div className="text-zinc-700 mt-4">
-                  <p>برند کالات رو انتخاب کن</p>
-                  <select
-                    className="w-80 h-10 px-5 bg-slate-400 text-white"
-                    {...register("brand_child")}
-                  >
-                    <option value="haylou">haylou</option>
-                    <option value="anker">anker</option>
-                    <option value="one_plus">one_plus</option>
-                    <option value="oraimo">oraimo</option>
-                    <option value="bavin">bavin</option>
-                  </select>
-                </div>
+
                 <div className="text-zinc-700 mt-4">
                   <p>نوع کالات رو انتخاب کن</p>
                   <select
                     className="w-80 h-10 px-5 bg-slate-400 text-white"
                     {...register("type")}
                   >
-                    <option value="سیمی/گردنی">سیمی/گردنی</option>
-                    <option value="ترووایرلس">ترو وایرلس</option>
-                    <option value="دوگوشی">دوگوشی</option>
+                    <option value="هندزفری سیمی">هندزفری سیمی</option>
+                    <option value="هندزفری دور گردنی">هندزفری دور گردنی</option>
+                    <option value="هدست های دور گوشی">
+                      {" "}
+                      هدست های دور گوشی
+                    </option>
+                    <option value="هندزفری ترو وایرلس(ایرپاد)">
+                      هندزفری ترو وایرلس(ایرپاد)
+                    </option>
                   </select>
                 </div>
                 <div className="text-zinc-700 mt-4">

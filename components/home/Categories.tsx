@@ -19,7 +19,7 @@ const Categories: React.FC<{ attributes: PublicProp[] }> = ({ attributes }) => {
           >
             <Link href={`/products/${item.content}`}>
               <a className="flex vstack justify-center">
-                <div className="relative w-44 md:w-[400px] h-44 md:h-80 bg-amber-400">
+                <div className="relative w-44 md:w-[400px] h-44 md:h-80 bg-zinc-800">
                   <Image
                     alt=""
                     src={item?.media || ""}
@@ -28,8 +28,8 @@ const Categories: React.FC<{ attributes: PublicProp[] }> = ({ attributes }) => {
                     priority
                   />
                 </div>
-                <p className="absolute text-2xl md:text-4xl">
-                  محصولات {item.title}
+                <p className="absolute text-2xl md:text-4xl text-center px-4">
+                  {item.title}
                 </p>
               </a>
             </Link>

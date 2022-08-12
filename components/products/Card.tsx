@@ -24,6 +24,7 @@ const Card: React.FC<{ data: ProTypes[] }> = ({ data }) => {
                   price: item.price,
                   type: item.type,
                   use: item.use,
+                  show_price: item.show_price,
                 },
               }}
             >
@@ -36,7 +37,9 @@ const Card: React.FC<{ data: ProTypes[] }> = ({ data }) => {
                     <p className="text-zinc-700 whitespace-pre-wrap text-center">
                       {item?.title}
                     </p>
-                    <p className="mt-1 text-zinc-500">{item?.price} تومان</p>
+                    <p className="mt-1 text-zinc-500">
+                      {item?.show_price} تومان
+                    </p>
                   </div>
                 </div>
               </div>
@@ -49,3 +52,5 @@ const Card: React.FC<{ data: ProTypes[] }> = ({ data }) => {
 };
 
 export default Card;
+
+//  ۱    ۲     ۳   ۴     ۵     ۶     ۷     ۸     ۹     ۰

@@ -19,6 +19,7 @@ export interface ProTypes {
   category?: string;
   type?: string;
   use?: string;
+  show_price?: string;
   id: number;
 }
 

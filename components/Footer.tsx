@@ -29,8 +29,8 @@ const Footer: React.FC = () => {
           </Link>
         </div>
         <Link href={"/"}>
-          <a className="bg-white">
-            <Image alt="" width={80} height={90} src={"/star1.png"} />
+          <a className="">
+            <Image alt="" width={100} height={100} src={"/enam.png"} />
           </a>
         </Link>
       </div>

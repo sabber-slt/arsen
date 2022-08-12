@@ -30,6 +30,7 @@ const Discount: React.FC<{ attributes: ProTypes[] }> = ({ attributes }) => {
                     price: item.price,
                     type: item.type,
                     use: item.use,
+                    show_price: item.show_price,
                   },
                 }}
               >
@@ -42,14 +43,16 @@ const Discount: React.FC<{ attributes: ProTypes[] }> = ({ attributes }) => {
                     priority
                   />
                   <div className="vstack">
-                    <p className="text-zinc-700 whitespace-pre-line text-center">
+                    <p className="text-zinc-700 whitespace-pre-line text-center px-3">
                       {item?.title}
                     </p>
 
                     <p className="mt-1 text-zinc-500 line-through decoration-red-600">
                       {item?.old_price}
                     </p>
-                    <p className="mt-1 text-zinc-500">{item?.price} تومان</p>
+                    <p className="mt-1 text-zinc-500">
+                      {item?.show_price} تومان
+                    </p>
                   </div>
                 </div>
               </Link>

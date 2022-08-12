@@ -15,12 +15,13 @@ const Home: NextPage<{ data: MainProps }> = ({ data }) => {
     (item) => item.category === "takhfif"
   );
   const topProducts = data?.products?.filter((item) => item.category === "top");
+
   return (
     <div>
       <Search />
       <Carousel data={data?.public?.slice(6, 10)} />
       <Discount attributes={discount} />
-      <Categories attributes={data?.public?.slice(0, 6)} />
+      <Categories attributes={data?.public?.slice(0, 4)} />
       <TopProducts data={topProducts} />
       <Subs />
     </div>

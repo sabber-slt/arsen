@@ -10,7 +10,7 @@ import { NextSeo } from "next-seo";
 const Shop = () => {
   const router = useRouter();
   const { query } = router;
-  console.log(query);
+
   return (
     <>
       <NextSeo
@@ -38,6 +38,7 @@ const Shop = () => {
                   price: query.price,
                   type: query.type,
                   use: query.use,
+                  show_price: query.show_price,
                 },
               }}
             >
@@ -62,10 +63,10 @@ const Shop = () => {
         </div>
 
         <div className="w-1/5 vstack my-8">
-          <div className="w-36 h-48 bg-red-200 text-zinc-900 vstack justify-around rounded-lg">
+          <div className="w-36 h-48 bg-slate-200 text-zinc-900 vstack justify-around rounded-lg">
             <div className="vstack text-xs">
               <p className="text-right w-full">قیمت:</p>
-              <p className="pt-2"> {query?.price} تومان</p>
+              <p className="pt-2"> {query?.show_price} تومان</p>
             </div>
             <div className="vstack text-xs">
               <p className="text-right w-full">موجود در انبار:</p>
@@ -87,11 +88,12 @@ const Shop = () => {
                   title: query.title,
                   price: query.price,
                   media: query.media,
+                  show_price: query.show_price,
                 },
               }}
             >
               <a>
-                <div className="bg-red-700 px-3 rounded-md text-white py-2">
+                <div className="bg-red-500 px-3 rounded-md text-white py-2">
                   خرید این محصول
                 </div>
               </a>
