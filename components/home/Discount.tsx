@@ -4,13 +4,16 @@ import React from "react";
 import { FiGift } from "react-icons/fi";
 import { ProTypes } from "../../types/public.types";
 
-const Discount: React.FC<{ attributes: ProTypes[] }> = ({ attributes }) => {
+const Discount: React.FC<{ attributes: ProTypes[]; group: string }> = ({
+  attributes,
+  group,
+}) => {
   return (
     <div className="my-10 w-full">
       <div className="relative flex items-center bg-black h-96">
-        <div className="vstack p-2 ">
+        <div className="vstack p-2 w-24">
           <FiGift className="text-white text-5xl pb-3 text-center" />
-          <p className="text-center text-amber-400">پیشنهادات شگقت انگیز</p>
+          <p className="text-center text-sm text-amber-400">{group}</p>
         </div>
         <div className="no-scrollbar w-full overflow-x-scroll scroll scroll-smooth whitespace-nowrap">
           {attributes.map((item) => (

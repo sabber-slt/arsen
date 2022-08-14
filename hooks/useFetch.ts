@@ -168,6 +168,28 @@ export const fetchHome = async () => {
           media
           title
         }
+     
+          other {
+            brand
+            brand_child
+            category
+            code
+            color
+            content
+            desc
+            id
+            media
+            media1
+            media2
+            old_price
+            price
+            show_price
+            title
+            type
+            use
+          }
+        
+        
       }  
       `,
     }),

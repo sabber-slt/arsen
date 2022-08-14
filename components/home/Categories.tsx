@@ -28,7 +28,7 @@ const Categories: React.FC<{ attributes: PublicProp[] }> = ({ attributes }) => {
                     priority
                   />
                 </div>
-                <p className="absolute text-2xl md:text-4xl text-center px-4">
+                <p className="absolute text-2xl whitespace-pre-line md:text-4xl text-center px-4">
                   {item.title}
                 </p>
               </a>

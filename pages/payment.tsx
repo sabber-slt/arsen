@@ -59,12 +59,16 @@ const Payment = () => {
         <div className="h-[100vh] w-full flex flex-col items-center justify-center">
           <p className="text-center px-5">
             در صورت تمایل به خرید محصول به صورت کارت به کارت لطفا پس از انجام
-            تراکنش شماره تراکنش را به همراه مشخصات خود به شماره 00000000000
+            0تراکنش شماره تراکنش را به همراه مشخصات خود به شماره 9034060388
             پیامک نمایید
           </p>
           <p className="text-rose-500 mt-5">
-            6037-9974-2569-7896{" "}
-            <span className="text-zinc-500"> سالار عقیلی</span>
+            6362-1411-1405-3185{" "}
+            <span className="text-zinc-500">بانک آینده پوریا خدائی</span>
+          </p>
+          <p className="text-rose-500 mt-5">
+            6219-8610-4913-6111{" "}
+            <span className="text-zinc-500">بانک سامان پوریا خدائی</span>
           </p>
         </div>
       ) : (

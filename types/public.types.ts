@@ -37,4 +37,5 @@ export interface AboutProps {
 export interface MainProps {
   public: PublicProp[];
   products: ProTypes[];
+  other: ProTypes[];
 }
