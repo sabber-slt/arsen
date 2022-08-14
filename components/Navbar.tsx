@@ -6,7 +6,7 @@ import Link from "next/link";
 const links = [
   { href: "/", label: "خانه" },
   { href: "/products", label: "فروشگاه" },
-  { href: "https://yek.link/Arsenmobile", label: "درباره آرسن" },
+  { href: "https://yek.link/Arsenmobile", label: "صفحات دیگر ما" },
 ];
 
 const Navbar: React.FC = () => {

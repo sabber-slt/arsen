@@ -66,25 +66,12 @@ const ShegeftAngiz: React.FC = () => {
                     />
                   </div>
                   <div className="w-1/2 flex items-center justify-end">
-                    <Link
-                      href={{
-                        pathname: "/admin/product",
-                        query: {
-                          id: item.id,
-                          title: item.title,
-                          media: item.media,
-                        },
-                      }}
-                    >
-                      <a>
-                        <Image
-                          src={item.media as string}
-                          alt=""
-                          width={150}
-                          height={150}
-                        />
-                      </a>
-                    </Link>
+                    <Image
+                      src={item.media as string}
+                      alt=""
+                      width={150}
+                      height={150}
+                    />
                   </div>
                 </div>
                 // </Link>
