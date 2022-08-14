@@ -39,3 +39,16 @@ export interface MainProps {
   products: ProTypes[];
   other: ProTypes[];
 }
+
+export interface Sefareshat {
+  title: string;
+  status: string;
+  productId: string;
+  authority: string;
+  post: string;
+  price: string;
+  phone: string;
+  address: string;
+  name: string;
+  id: number;
+}
