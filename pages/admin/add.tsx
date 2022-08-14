@@ -3,6 +3,7 @@ import React from "react";
 import Search from "../../components/products/Search";
 import { API_URL0 } from "../../hooks/useFetch";
 import useAuth from "../../utils/useAuth";
+import Login from "../../components/admin/Login";
 
 type FormData = {
   title: string;
@@ -21,7 +22,7 @@ type FormData = {
   category: string;
 };
 
-const Login: React.FC = () => {
+const Add: React.FC = () => {
   const { auth } = useAuth();
 
   const { register, handleSubmit } = useForm<FormData>();
@@ -177,4 +178,4 @@ const Login: React.FC = () => {
     </div>
   );
 };
-export default Login;
+export default Add;
