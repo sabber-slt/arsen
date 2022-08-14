@@ -24,8 +24,9 @@ type FormData = {
 
 const Add: React.FC = () => {
   const { auth } = useAuth();
+  const [loading, setLoading] = React.useState("");
 
-  const { register, handleSubmit } = useForm<FormData>();
+  const { register, handleSubmit, reset } = useForm<FormData>();
 
   const onClick = async (data: FormData) => {
     const res = await fetch(`${API_URL0}`, {
@@ -63,7 +64,12 @@ const Add: React.FC = () => {
       }),
     });
     const json = await res.json();
-    console.log(json);
+    if (json.errors) {
+      setLoading("مشکلی در ارسال داده ها به سرور وجود دارد");
+    } else {
+      setLoading("داده ها با موفقیت ثبت شد");
+    }
+    reset();
   };
   return (
     <div>
@@ -73,6 +79,7 @@ const Add: React.FC = () => {
           onSubmit={handleSubmit(onClick)}
           className="flex flex-col items-center justify-center text-zinc-700 my-8"
         >
+          <p>{loading}</p>
           <label htmlFor="title" className="w-72 text-right pb-2">
             عنوان
           </label>
