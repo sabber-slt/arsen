@@ -59,7 +59,7 @@ const Payment = () => {
         <div className="h-[100vh] w-full flex flex-col items-center justify-center">
           <p className="text-center px-5">
             در صورت تمایل به خرید محصول به صورت کارت به کارت لطفا پس از انجام
-            0تراکنش شماره تراکنش را به همراه مشخصات خود به شماره 9034060388
+            تراکنش شماره تراکنش را به همراه مشخصات خود به شماره 09034060388
             پیامک نمایید
           </p>
           <p className="text-rose-500 mt-5">
