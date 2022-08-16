@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Search from "../components/products/Search";
+import { API_URL0 } from "../hooks/useFetch";
 import useUser from "../utils/useUser";
 
 type FormData = {
@@ -11,45 +12,79 @@ type FormData = {
   phone: string;
   address: string;
   post: string;
+  code: string;
 };
 
 const Payment = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const [load, setLoad] = useState(false);
+  const [info, setInfo] = useState("");
   const { query } = router;
   const { setUser } = useUser();
   const { register, handleSubmit } = useForm<FormData>();
   const onClick = async (data: FormData) => {
-    const { name, phone, address, post } = data;
-    const user = {
-      name,
-      phone,
-      address,
-      post,
-      productId: query.id,
-      title: query.title,
-      price: query.price,
-    };
-    const res = await fetch("/api/payment", {
+    setLoad(true);
+    const { name, phone, address, post, code } = data;
+    const res1 = await fetch(`${API_URL0}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-Hasura-Role": "public",
       },
       body: JSON.stringify({
+        query: `
+        query MyQuery($id: Int) {
+          products(where: {id: {_eq: $id}}) {
+            code
+            takhfif
+          }
+        }
+        `,
+        variables: {
+          id: parseInt(query.id as string),
+        },
+      }),
+    });
+    const data1 = await res1.json();
+    console.log(data1);
+    if ((data1 && data1.data.products[0].code === code) || code === "") {
+      const user = {
         name,
         phone,
         address,
         post,
-        productId: query.id || "",
-        price: query.price || "",
-        title: query.title || "",
-      }),
-    });
-    const result = await res.json();
-    if (result.status === "success") {
-      setUser(user);
-      router.push(`${result.url}`);
+        productId: query.id,
+        title: query.title,
+        price: query.price,
+      };
+      const res = await fetch("/api/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          address,
+          post,
+          productId: query.id || "",
+          price:
+            data1.data.products[0].code === code
+              ? parseInt(query.price as string) - data1.data.products[0].takhfif
+              : query.price,
+          title: query.title || "",
+        }),
+      });
+      const result = await res.json();
+      if (result.status === "success") {
+        setUser(user);
+        router.push(`${result.url}`);
+      }
+    } else {
+      setInfo("کد تخفیف اشتباه است");
     }
+    setLoad(false);
   };
   return (
     <div className="relative text-zinc-700 bg-white w-full h-full">
@@ -76,63 +111,82 @@ const Payment = () => {
           onSubmit={handleSubmit(onClick)}
           className="h-full vstack justify-center mt-16"
         >
-          <div className="vstack">
-            <label className="" htmlFor="name">
-              نام و نام خانوادگی{" "}
-            </label>
-            <input
-              type="text"
-              {...register("name")}
-              className="w-64 h-10 bg-slate-200 rounded-lg pr-2"
-            />
-          </div>
-          <div className="vstack">
-            <label className="mt-5" htmlFor="name">
-              شماره موبایل{" "}
-            </label>
-            <input
-              type="number"
-              {...register("phone")}
-              className="w-64 h-10 bg-slate-200 rounded-lg pr-3"
-            />
-          </div>
-          <div className="vstack">
-            <label className="mt-5" htmlFor="name">
-              کدپستی{" "}
-            </label>
-            <input
-              type="number"
-              {...register("post")}
-              className="w-64 h-10 bg-slate-200 rounded-lg pr-3"
-            />
-          </div>
-          <div className="vstack">
-            <label className="mt-5" htmlFor="name">
-              آدرس{" "}
-            </label>
-            <textarea
-              {...register("address")}
-              className="w-64 h-36 bg-slate-200 rounded-lg pr-3"
-            />
-          </div>
-          <div className="vstack">
-            <img alt="" src={`${query.media}`} width={200} height={200} />
-            <p>{query.title}</p>
-            <p>تعداد : یک عدد</p>
-            <p>قیمت : {query.show_price} تومان</p>
-          </div>
-          <button
-            type="submit"
-            className="w-36 my-8 py-3 bg-red-400 text-white rounded-lg"
-          >
-            پرداخت آنلاین
-          </button>
-          <button
-            onClick={() => setShow(true)}
-            className="w-36 mb-8 py-3 bg-red-400 text-white rounded-lg"
-          >
-            پرداخت کارت به کارت
-          </button>
+          {load ? (
+            <div className="w-full h-screen fixed bg-black flex flex-col items-center justify-center z-50 top-0">
+              <p className="z-50 text-white">در حال انجام تراکنش...</p>
+            </div>
+          ) : (
+            <>
+              <div className="vstack">
+                <label className="" htmlFor="name">
+                  نام و نام خانوادگی{" "}
+                </label>
+                <input
+                  type="text"
+                  {...register("name")}
+                  className="w-64 h-10 bg-slate-200 rounded-lg pr-2"
+                />
+              </div>
+              <div className="vstack">
+                <label className="mt-5" htmlFor="name">
+                  شماره موبایل{" "}
+                </label>
+                <input
+                  type="number"
+                  {...register("phone")}
+                  className="w-64 h-10 bg-slate-200 rounded-lg pr-3"
+                />
+              </div>
+              <div className="vstack">
+                <label className="mt-5" htmlFor="name">
+                  کدپستی{" "}
+                </label>
+                <input
+                  type="number"
+                  {...register("post")}
+                  className="w-64 h-10 bg-slate-200 rounded-lg pr-3"
+                />
+              </div>
+              <div className="vstack">
+                <label className="mt-5" htmlFor="name">
+                  آدرس{" "}
+                </label>
+                <textarea
+                  {...register("address")}
+                  className="w-64 h-36 bg-slate-200 rounded-lg pr-3"
+                />
+              </div>
+              <div className="vstack">
+                <label className="" htmlFor="name">
+                  کد تخفیف (اختیاری){" "}
+                </label>
+                <input
+                  type="text"
+                  {...register("code")}
+                  className="w-64 h-10 bg-slate-200 rounded-lg pr-2"
+                />
+                <p className="text-red-400">{info}</p>
+              </div>
+              <div className="vstack">
+                <img alt="" src={`${query.media}`} width={200} height={200} />
+                <p>{query.title}</p>
+                <p>تعداد : یک عدد</p>
+                <p>قیمت : {query.show_price} تومان</p>
+              </div>
+              <button
+                type="submit"
+                className="w-36 my-8 py-3 bg-red-400 text-white rounded-lg"
+              >
+                پرداخت آنلاین
+              </button>
+              <button
+                onClick={() => setShow(true)}
+                className="w-36 mb-8 py-3 bg-red-400 text-white rounded-lg"
+              >
+                پرداخت کارت به کارت
+              </button>
+            </>
+          )}
         </form>
       )}
     </div>

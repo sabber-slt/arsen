@@ -20,6 +20,8 @@ type FormData = {
   type: string;
   use: string;
   category: string;
+  code: string;
+  takhfif: number;
 };
 
 const Add: React.FC = () => {
@@ -37,8 +39,8 @@ const Add: React.FC = () => {
       },
       body: JSON.stringify({
         query: `
-            mutation MyMutation($brand: String, $brand_child: String , $category: String , $content: String, $desc: String , $media: String , $media1: String, $media2: String, $old_price: String , $price: Int , $show_price: String, $title: String, $type: String , $use: String) {
-                insert_products(objects: {brand: $brand, brand_child: $brand_child, category: $category, content: $content, desc: $desc, media: $media, media1: $media1, media2: $media2, old_price: $old_price, price: $price, show_price: $show_price, title: $title, type: $type, use: $use}) {
+            mutation MyMutation($brand: String, $brand_child: String , $category: String , $content: String, $desc: String , $media: String , $media1: String, $media2: String, $old_price: String , $price: Int , $show_price: String, $title: String, $type: String , $use: String , $code: String , $takhfif: Int) {
+                insert_products(objects: {brand: $brand, brand_child: $brand_child, category: $category, content: $content, desc: $desc, media: $media, media1: $media1, media2: $media2, old_price: $old_price, price: $price, show_price: $show_price, title: $title, type: $type, use: $use, code: $code, takhfif: $takhfif}) {
                   returning {
                     brand
                   }
@@ -60,10 +62,13 @@ const Add: React.FC = () => {
           title: data.title,
           type: data.type,
           use: data.use,
+          code: data.code,
+          takhfif: data.takhfif,
         },
       }),
     });
     const json = await res.json();
+    console.log(json);
     if (json.errors) {
       setLoading("مشکلی در ارسال داده ها به سرور وجود دارد");
     } else {
@@ -171,6 +176,18 @@ const Add: React.FC = () => {
             placeholder="یا top یا takhfif یا چیزی ننویسید"
             className="w-72 h-9 rounded-lg bg-slate-300 text-zinc-700 pr-3"
             {...register("category")}
+          />
+          <input
+            type="text"
+            placeholder="کد تخفیف برای مثال cx757510 "
+            className="w-72 h-9 rounded-lg bg-slate-300 text-zinc-700 pr-3 mt-4"
+            {...register("code")}
+          />
+          <input
+            type="number"
+            placeholder="  مقدار تخفیف به تومان مثال 500000   "
+            className="w-72 h-9 rounded-lg bg-slate-300 text-zinc-700 pr-3 mt-4"
+            {...register("takhfif")}
           />
           <button
             type="submit"
