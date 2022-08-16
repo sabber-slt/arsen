@@ -39,6 +39,18 @@ const AdminHome: React.FC = () => {
             فروش
           </a>
         </Link>
+        <Link href="/admin/parcham">
+          <a className="text-slate-100 bg-red-500 w-full text-center py-2 mt-4">
+            {" "}
+            پرچم دار ها
+          </a>
+        </Link>
+        <Link href="/admin/total">
+          <a className="text-slate-100 bg-red-500 w-full text-center py-2 mt-4">
+            {" "}
+            کل محصولات
+          </a>
+        </Link>
       </div>
 
       <div className="w-full flex flex-col items-center my-16">
