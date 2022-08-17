@@ -101,7 +101,7 @@ const Subs: React.FC = () => {
       <div className="flex w-full items-center justify-center my-5">
         <Link
           href={
-            "https://doc-00-ao-docs.googleusercontent.com/docs/securesc/vci0t73qv3ah82r81tsd5st9cljia0g1/gjs21dvvv53obbai6k6v7l9mfmppe429/1660736025000/06936374929987497845/06936374929987497845/1ytzZZ_S7WYe4kw90mjWUesY_jmZBXlwJ?e=download&ax=AI9vYm46Y_UwHt303INL_VpN-4tnp7974YpwJ8wFDhDrWKbZcRNjev4dFZ4N9wCgTdZYdSiNhY7GsDMInmUfiA22HNp-twRkjI2oEIo2tOmjn3R2g99fKeJAGt_Z71uGhb_PCMvCsl1KJRBq4uJcG7CFJuetqgVzVHKngItHM3Ps_4y5If0X4fMSYwkkXMGW0hOW4IYbMGGRQmjIhqlKMT_Y2zavoNkpYJb9fyjJuD6QQShG2tSEc4tQeJn42eOtD3EeyL9t23Um4_FHW4iq0efMRdhAlApuLuSXSzfwAW1dkgIQi8HBTP3X_36hQhDHrc-fEpNm0Zjg6-1ZN6HybwZnw8YsZxqEgEcBCSfTtGtwmisc_uxI6UBvF93jh_QXcSLpeFNGe661flEQHFJr5Ow0SZ4lVvperNZGmxLLKZ8jgl4RCaS6VB_P7koaXux2UX1TVsIX6FMawvZK25BiLaSBdh08Zcb5G4vHqI73hjipPwVn5WGehSM0VklIxs0qFRpBF3YaLc_i82ADmi9g9J52qVnTW8mj8sjZb7uPo28EZAa8wnug9pC_SGwbqhwtMrwS2wwktEqzBTp5YIlHaTX-DlzoZHlkEr6FuzPUR9x0mQ_rWUSluR2zrZRGj1HBikP-eV5QvHYHsf8RqxtNw3G5g1L95qy9EM5M1H1OJ3SOItv49PBebVshmhUYh-gpIT_ryOIdQx6aSu0lMg&uuid=2ed29f73-5ec5-4e57-8c34-6ea4ca37a3eb&authuser=0"
+            "https://raw.githubusercontent.com/sabber-slt/arsen/main/public/Arsen%20Mobile.apk"
           }
         >
           <a className="text-black my-24">
