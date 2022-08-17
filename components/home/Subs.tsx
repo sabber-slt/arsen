@@ -101,7 +101,6 @@ const Subs: React.FC = () => {
       <div className="flex w-full items-center justify-center my-5">
         <Link
           href={"https://www.4shared.com/mobile/_Wj8kWreea/Arsen_Mobile.html"}
-          passHref
         >
           <a className="text-black my-24">
             <div className="relative flex flex-col items-center justify-center w-screen md:w-96 h-96 bg-amber-400 rounded-md overflow-hidden">
