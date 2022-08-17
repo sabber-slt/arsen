@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
             </a>
           </Link>
         </div>
-        <p className="text-sm px-5 pb-5">درباره آرسن</p>
+        <p className="text-sm px-5 pb-5"> درباره آرسن موبایل</p>
         <p className="text-sm px-5 text-amber-400">
           آرسن فروشگاه تخصصی هدفون بوده و به صورت تخصصی تمامی هدفون های موجود در
           بازار را تست کرده و محصولاتی که واقعا ارزش خرید دارن رو موجود کرده و

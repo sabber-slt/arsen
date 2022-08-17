@@ -17,7 +17,7 @@ const Discount: React.FC<{ attributes: ProTypes[]; group: string }> = ({
         </div>
         <div className="no-scrollbar w-full overflow-x-scroll scroll scroll-smooth whitespace-nowrap">
           {attributes.map((item) => (
-            <div key={item.id} className="w-[200px] inline-block mx-5">
+            <div key={item.id} className="w-[200px] inline-block mx-3">
               <Link
                 href={{
                   pathname: "/shop",
