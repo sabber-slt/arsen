@@ -100,9 +100,7 @@ const Subs: React.FC = () => {
       </div>
       <div className="flex w-full items-center justify-center my-5">
         <Link
-          href={
-            "https://dc341.4shared.com/download/_Wj8kWreea/Arsen_Mobile.apk?tsid=20220817-102320-26cee7aa&sbsr=ca64855ebee32ea18258195cfe71419bab9&bip=NTQuMzkuMjQ0LjY3&lgfp=30"
-          }
+          href={"https://www.4shared.com/mobile/_Wj8kWreea/Arsen_Mobile.html"}
           passHref
         >
           <a className="text-black my-24">
