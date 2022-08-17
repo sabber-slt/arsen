@@ -19,6 +19,7 @@ const Home: NextPage<{ data: MainProps }> = ({ data }) => {
   return (
     <div>
       <Search />
+
       <Carousel data={data?.public?.slice(6, 10)} />
       <Discount attributes={discount} group="پیشنهادات شگفت انگیز" />
       <Discount attributes={data?.other} group="پرچم دارهای آرسن" />
