@@ -99,26 +99,27 @@ const Subs: React.FC = () => {
         </Link>
       </div>
       <div className="flex w-full items-center justify-center my-5">
-        <a
+        <Link
           href={
             "https://dc341.4shared.com/download/_Wj8kWreea/Arsen_Mobile.apk?tsid=20220817-102320-26cee7aa&sbsr=ca64855ebee32ea18258195cfe71419bab9&bip=NTQuMzkuMjQ0LjY3&lgfp=30"
           }
-          download
-          className="text-black my-24"
+          passHref
         >
-          <div className="relative flex flex-col items-center justify-center w-screen md:w-96 h-96 bg-amber-400 rounded-md overflow-hidden">
-            <Image
-              src="https://res.cloudinary.com/djmmjcxxo/image/upload/v1660733298/pexels-deepanker-verma-1482061_i0tqhm.jpg"
-              alt=""
-              layout="fill"
-              objectFit="cover"
-              style={{ opacity: 0.8 }}
-            />
-            <p className="z-50 absolute text-3xl text-white text-center">
-              دانلود اپلیکیشن اندروید آرسن موبایل
-            </p>
-          </div>
-        </a>
+          <a className="text-black my-24">
+            <div className="relative flex flex-col items-center justify-center w-screen md:w-96 h-96 bg-amber-400 rounded-md overflow-hidden">
+              <Image
+                src="https://res.cloudinary.com/djmmjcxxo/image/upload/v1660733298/pexels-deepanker-verma-1482061_i0tqhm.jpg"
+                alt=""
+                layout="fill"
+                objectFit="cover"
+                style={{ opacity: 0.8 }}
+              />
+              <p className="z-50 absolute text-3xl text-white text-center">
+                دانلود اپلیکیشن اندروید آرسن موبایل
+              </p>
+            </div>
+          </a>
+        </Link>
       </div>
     </div>
   );
