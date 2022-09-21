@@ -22,7 +22,6 @@ const Home: NextPage<{ data: MainProps }> = ({ data }) => {
 
       <Carousel data={data?.public?.slice(6, 10)} />
       <Discount attributes={discount} group="پیشنهادات شگفت انگیز" />
-      <Discount attributes={data?.other} group="پرچم دارهای آرسن" />
       <Categories attributes={data?.public?.slice(0, 4)} />
       <TopProducts data={topProducts} />
       <Subs />
